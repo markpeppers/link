@@ -27,7 +27,11 @@ func ParseLinks(htmlDoc string) []Link {
 	f = func(n *html.Node) {
 		if n.Type == html.ElementNode && n.Data == "a" {
 			l := Link{}
-			l.Href = n.Attr[0].Val
+			for _, attr := range n.Attr {
+				if attr.Key == "href" {
+					l.Href = attr.Val
+				}
+			}
 			l.Text = assembleText(n)
 			links = append(links, l)
 		}

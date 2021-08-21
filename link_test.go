@@ -63,6 +63,31 @@ func TestLink(t *testing.T) {
 				},
 			},
 		},
+		{
+			testFile: "testfiles/ex-cnn.html",
+			want: []Link{
+				{
+					Href: "/",
+					Text: "",
+				},
+				{
+					Href: "/us",
+					Text: "US",
+				},
+				{
+					Href: "/world",
+					Text: "World",
+				},
+				{
+					Href: "/politics",
+					Text: "Politics",
+				},
+				{
+					Href: "/business",
+					Text: "Business",
+				},
+			},
+		},
 	}
 
 	for _, tc := range tests {
